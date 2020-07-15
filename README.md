@@ -1,2 +1,2 @@
 # DGM-and-DRM
-Several codes and results for the paper: A comprehensive study of boundary conditions when solving PDEs by DNNs
+A comparison study of deep Galerkin method and deep Ritz method for elliptic problems with different boundary conditions
