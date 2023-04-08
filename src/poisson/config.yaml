@@ -1,0 +1,20 @@
+# Physical parameters
+physical_config:
+  alpha: 1.0
+  space_dimension: 1
+  x_range: [0.0, 1.0]
+
+# Dataset parameters
+dataset_config:
+  interior_samples: 512
+
+# Model parameters
+model_config:
+  device_ids: [0]
+  lr: 0.001
+  stage_num: 250
+  decay_rate: 0.96
+  iterations: 5000
+  neural_network_type: "ResNet"
+  units: [256, 256, 256, 256]
+  regularizers: [1.0, 1.0]
