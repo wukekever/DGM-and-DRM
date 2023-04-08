@@ -22,7 +22,41 @@ class Poisson(object):
         # ref
         self.ref_x = torch.linspace(self.xmin, self.xmax, 100)[:, None].to(self.device)
 
-    # inputs: x
+    # # ritz residual
+    # def residual(self, sol, inputs):
+
+    #     x = inputs
+    #     values, derivatives = self.value_and_grad(sol, x)
+    #     u = values["u"]
+    #     du_dx = derivatives["space"]
+
+    #     eqn_res = {}
+    #     f = self.source(inputs=x)
+    #     # residual for Poisson equation
+    #     res_eqn = 0.5 * (du_dx**2 + torch.pi**2 * u**2) - f * u
+    #     eqn_res.update({"equation": res_eqn})
+    #     return eqn_res
+
+    # def value_and_grad(self, sol, x):
+    #     x.requires_grad = True
+    #     model = sol
+    #     values = {}
+    #     u = self.construct_sol(sol=model, inputs=x)
+    #     values.update({"u": u})
+
+    #     derivatives = {}
+    #     du_dx = torch.autograd.grad(
+    #         outputs=u,
+    #         inputs=x,
+    #         grad_outputs=torch.ones(u.shape).to(self.device),
+    #         create_graph=True,
+    #     )[0]
+
+    #     derivatives.update({"space": du_dx})
+
+    #     return values, derivatives
+
+    # galerkin residual
     def residual(self, sol, inputs):
 
         x = inputs

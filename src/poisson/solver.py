@@ -17,6 +17,10 @@ def train_step(
     res_u_l = res_boundary["bc_left"]
     res_u_r = res_boundary["bc_right"]
 
+    # # ritz residual
+    # res_eqn = torch.mean(res_eqn_u)
+
+    # galerkin residual
     res_eqn = torch.mean(res_eqn_u**2)
 
     res_bc = torch.mean(res_u_l**2) + torch.mean(res_u_r**2)
