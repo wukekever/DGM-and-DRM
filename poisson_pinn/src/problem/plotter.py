@@ -77,15 +77,15 @@ class Plotter:
         :type truth_solution: torch.Tensor, optional
         """
         fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(8, 8))
-
-        ax.plot(pts, pred.detach(), **kwargs)
+        ax.plot(pts.cpu().detach(), pred.cpu().detach(), label="Prediction", **kwargs)
 
         if truth_solution:
             truth_output = truth_solution(pts).float()
-            ax.plot(pts, truth_output.detach(), **kwargs)
+            ax.plot(pts.cpu().detach(), truth_output.cpu().detach(), label="True", **kwargs)
 
         plt.xlabel(pts.labels[0])
         plt.ylabel(pred.labels[0])
+        plt.legend()
         plt.show()
 
     def _2d_plot(self, pts, pred, v, res, method, truth_solution=None,

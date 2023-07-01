@@ -106,8 +106,8 @@ class PINN(object):
             return torch.linalg.vector_norm(vec, ord=self.error_norm,  dtype=self.dytpe)
         elif self.error_norm == 'mse':
             return torch.mean(vec.pow(2))
-        elif self.error_norm == 'me':
-            return torch.mean(torch.abs(vec))
+        elif self.error_norm == 'mean':
+            return torch.mean(vec)
         else:
             raise RuntimeError
 
