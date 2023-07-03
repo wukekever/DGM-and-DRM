@@ -2,15 +2,13 @@ import argparse
 import sys
 import numpy as np
 import torch
-from torch.nn import ReLU, Tanh, Softplus
+from torch.nn import Softplus
 
 
 from problem.pinn import PINN
 from problem.plotter import Plotter
 from problem.label_tensor import LabelTensor
 from model.feed_forward import FeedForward
-from adaptive_functions.adaptive_sin import AdaptiveSin
-from adaptive_functions.adaptive_tanh import AdaptiveTanh
 from poisson import Poisson
 
 
